@@ -1,15 +1,13 @@
 const stem = document.querySelector(".stem");
 const msg = document.getElementById("msg");
 
-function growPlant() {
-  const hour = new Date().getHours(); // 0–23
-  const height = 30 + hour * 3;
+console.log("NEW SCRIPT LOADED");
 
-  stem.style.height = height + "px";
-  stem.style.background = "#2f7a4f";
+let size = 30;
 
-  msg.textContent = `The plant is growing 🌱 (hour: ${hour})`;
-}
-
-growPlant();
-setInterval(growPlant, 60000); // updates every minute
+setInterval(() => {
+  size += 10;
+  stem.style.height = size + "px";
+  stem.style.background = "red";
+  msg.textContent = "Growing... " + size;
+}, 1000);
